@@ -15,6 +15,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/1.0.24/vue.min.js"></script>
     <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/js/materialize.min.js"></script>
+    <script src="/apps.js"></script>
  </head>
   <body class="cyan">
     <div class="navbar-fixed">
@@ -144,61 +145,7 @@
           </table>
         </div>
       </div>
-      <script>
-        var endpointUrl = 'http://api.labs.my/takwim/';
-        
-        new Vue({
-          el: '#app',
-          data: {
-            zones: [],
-            current_zone:[],
-            days: [],
-            year: '',
-            month: ''
-          },
-          computed: {
-        
-          },
-          ready: function() {
-            this.fetchZones();
-            this.year = 2016;
-            this.month = 6;
-            this.fetchData(this.year,this.month,'jhr01');
-          },
-          methods: {
-            fetchZones: function() {
-              _this = this;
-              _this.zones = [];
-              $.getJSON(endpointUrl + '/locations.json', function(response) {
-                _this.zones = response;
-              });
-            },
-            fetchData: function(yy,mm,zone) {
-              _this = this;
-              _this.days = [];
-              $.getJSON(endpointUrl + 'year/'+yy+'/month/'+mm+'/locations/'+zone+'.json', function(response) {
-                _this.days = response;
-              });
-            },
-        
-            getThisZone: function(kod) {
-              this.fetchData(2016,this.month,kod);
-              this.current_zone = kod
-            },
-        
-            getThisMonth: function(mm) {
-              this.fetchData(2016,mm,'jhr01');
-            }
-        
-          }
-        
-        
-        
-        })
-        
-        
-        //http://api.labs.my/taqwim/year/2016/month/2/locations/jhr01.json
-      </script>
+     
     </div>
     <footer class="cyan">
       <div class="container">
@@ -213,7 +160,7 @@
       </div>
       <div class="footer-copyright cyan darken-1">
         <div class="container">
-          Made in <a class="orange-text lighten-3" href="#"> Malaysia with love ruby on rails and vue.js</a>
+          Made in <a class="orange-text lighten-3" href="#"> Malaysia with love</a>
         </div>
       </div>
     </footer>
