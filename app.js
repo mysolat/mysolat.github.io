@@ -1,6 +1,9 @@
 var endpointUrl = 'http://api.labs.my/takwim/';
-        
-new Vue({
+
+var Zon = Vue.resource(endpointUrl + '/locations.json');
+var Calendar = Vue.resource(endpointUrl + 'year{/yy}/month{/mm}/locations{/zone}.json');
+
+var vm = new Vue({
   el: '#app',
   data: {
     zones: [],
@@ -13,35 +16,33 @@ new Vue({
 
   },
   ready: function() {
-    this.fetchZones();
+	this.fetchZones();
     this.year = 2016;
     this.month = 6;
-    this.fetchData(this.year,this.month,'jhr01');
+    this.fetchData(this.year, this.month, 'jhr01');
   },
   methods: {
     fetchZones: function() {
-      _this = this;
-      _this.zones = [];
-      $.getJSON(endpointUrl + '/locations.json', function(response) {
-        _this.zones = response;
+	  self = this
+      Zon.get({}).then(function (response) {
+        self.$set('zones', response.data);
       });
     },
     
     fetchData: function(yy,mm,zone) {
-      _this = this;
-      _this.days = [];
-      $.getJSON(endpointUrl + 'year/'+yy+'/month/'+mm+'/locations/'+zone+'.json', function(response) {
-        _this.days = response;
+	  self = this
+	  Calendar.get({yy: yy, mm: mm, zone: zone}).then(function (response) {
+        self.$set('days', response.data);
       });
     },
     
     getThisZone: function(kod) {
-      this.fetchData(2016,this.month,kod);
-      this.current_zone = kod
+      this.fetchData(2016, this.month, kod);
+      this.current_zone = kod;
     },
 
     getThisMonth: function(mm) {
-      this.fetchData(2016,mm,'jhr01');
+      this.fetchData(2016, mm, 'jhr01');
     }
   }
 })
