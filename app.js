@@ -1,4 +1,4 @@
-var endpointUrl = 'http://api.labs.my/takwim/';
+var endpointUrl = 'http://api.solat.my/takwim/';
 
 var Zon = Vue.resource(endpointUrl + '/locations.json');
 var Calendar = Vue.resource(endpointUrl + 'year{/yy}/month{/mm}/locations{/zone}.json');
