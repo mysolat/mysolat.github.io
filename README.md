@@ -1,2 +1,2 @@
-# takwim.github.io
+# mysolat.github.io
 Waktu solat malaysia
