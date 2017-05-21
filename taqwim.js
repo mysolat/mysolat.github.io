@@ -1,4 +1,4 @@
-var endpointUrl = 'http://localhost:7777/zones';
+var endpointUrl = 'http://api.solat.my/zones';
 
 var Zon = Vue.resource(endpointUrl + '.json');
 var Calendar = Vue.resource(endpointUrl + '{/zone}.json');
