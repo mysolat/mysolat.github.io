@@ -5,30 +5,27 @@
     <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
     <meta content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no" name="viewport" />
     <meta content="Waktu Solat Malaysia" name="description" />
-    <meta content="Waktu,Solat,Taqwim,Jakim,takwim, takwim solat, taqwim solat" name="keywords" />
+    <meta content="Waktu, Solat, Taqwim, Jakim, takwim, takwim solat, taqwim solat" name="keywords" />
     <meta content="Mohd Khairi Mohd Adnan" name="author" />
     <title>Waktu Solat Malaysia</title>
-     <!-- Compiled and minified CSS -->
+       <!-- Compiled and minified CSS -->
     <!--link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous" -->
-    <link rel="stylesheet" href="material.min.css">
+    <link rel="stylesheet" href="/css/material.min.css">
     <link rel="stylesheet" href="/css/style.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.3.3/vue.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/vue-resource/1.3.1/vue-resource.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue-resource/1.3.1/vue-resource.min.js"></script>
+   
     <!-- Compiled and minified JavaScript -->
     <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
-    <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
-
-
 
 
  </head>
   <body class="bg-faded">
     <nav class="navbar navbar-toggleable-md navbar-inverse fixed-top bg-inverse navbar-fixed-top">
-      <a class="navbar-brand" href="index" style="font-family: 'Ubuntu', sans-serif;">SOLAT.MY</a>
+      <a class="navbar-brand" href="index">SOLAT.MY</a>
         <ul class="navbar-nav mr-auto">
           <li class="nav-item active">
             <a class="nav-link" href="/takwim">TAKWIM <span class="sr-only">(current)</span></a>
@@ -77,9 +74,6 @@
                 <thead>
                   <tr>
                     <th>
-                      Tarikh Hijrah
-                    </th>
-                    <th>
                       Tarikh 
                     </th>
                     <th>
@@ -103,13 +97,14 @@
                     <th>
                       Isyak
                     </th>
+                    <th>
+                      Tarikh Hijrah
+                    </th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr v-for="day in days.timetables">
-                    <td>
-                      {{day.tarikh_hijrah}}
-                    </td>
+                   
                     <td>
                       {{day.tarikh}}
                     </td>
@@ -133,6 +128,9 @@
                     </td>
                     <td>
                       {{day.isyak}}
+                    </td>
+                    <td>
+                      {{day.tarikh_hijrah}}
                     </td>
                   </tr>
                 </tbody>
