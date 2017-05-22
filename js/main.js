@@ -1,3 +1,36 @@
+function setCookie(cname, cvalue) {
+  return document.cookie = cname + "=" + cvalue + ";";
+}
+
+function getCookie(cname) {
+  var name = cname + "=";
+  var decodedCookie = decodeURIComponent(document.cookie);
+  var ca = decodedCookie.split(';');
+  for(var i = 0; i <ca.length; i++) {
+      var c = ca[i];
+      while (c.charAt(0) == ' ') {
+          c = c.substring(1);
+      }
+      if (c.indexOf(name) == 0) {
+          return c.substring(name.length, c.length);
+      }
+  }
+  return "";
+}
+
+function detectLocation(){
+  var cookie = "SGR02"
+  if(getCookie('zone') == ""){
+    cookie = setCookie('zone', cookie) 
+  }
+  else{
+    cookie = getCookie('zone')
+  }
+  return cookie; 
+}
+
+
+
 Vue.config.devtools = true
 var endpointUrl = 'http://api.solat.my/';
 var Zon = Vue.resource(endpointUrl + 'zones.json');
@@ -12,6 +45,7 @@ var data =  {
     month: 05,
     days: [],
     today: [],
+    location: ''
   }
 
 var daily = new Vue({
@@ -22,6 +56,7 @@ var daily = new Vue({
     self = this
     Calendar.get({zone: zone}).then(function (response) {
         self.today = response.data;
+        self.location = self.today.locations[0]
       });
     }
   }
@@ -46,7 +81,7 @@ var monthly = new Vue({
 })
 
 var locations = new Vue({
-  el: '#locations',
+  el: '#main',
   data: data,
   computed: {
 
@@ -79,34 +114,5 @@ var locations = new Vue({
   }
 })
 
-function setCookie(cname, cvalue) {
-  return document.cookie = cname + "=" + cvalue + ";";
-}
 
-function getCookie(cname) {
-  var name = cname + "=";
-  var decodedCookie = decodeURIComponent(document.cookie);
-  var ca = decodedCookie.split(';');
-  for(var i = 0; i <ca.length; i++) {
-      var c = ca[i];
-      while (c.charAt(0) == ' ') {
-          c = c.substring(1);
-      }
-      if (c.indexOf(name) == 0) {
-          return c.substring(name.length, c.length);
-      }
-  }
-  return "";
-}
-
-function detectLocation(){
-  var cookie = "SGR02"
-  if(getCookie('zone') == ""){
-    cookie = setCookie('zone', cookie) 
-  }
-  else{
-    cookie = getCookie('zone')
-  }
-  return cookie; 
-}
 
