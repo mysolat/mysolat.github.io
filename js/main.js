@@ -1,5 +1,5 @@
 function setCookie(cname, cvalue) {
-  return document.cookie = cname + "=" + cvalue + ";";
+  document.cookie = cname + "=" + cvalue + ";";
 }
 
 function getCookie(cname) {
@@ -21,7 +21,7 @@ function getCookie(cname) {
 function detectLocation(){
   var cookie = "SGR02"
   if(getCookie('zone') == ""){
-    cookie = setCookie('zone', cookie) 
+    setCookie('zone', cookie)
   }
   else{
     cookie = getCookie('zone')
