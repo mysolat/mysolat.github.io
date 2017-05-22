@@ -1,8 +1,8 @@
-var endpointUrl = 'http://api.solat.my/zones';
 Vue.config.devtools = true
-var Zon = Vue.resource(endpointUrl + '.json');
-var Calendar = Vue.resource(endpointUrl + '{/zone}.json');
-// Require dependencies 
+var endpointUrl = 'http://api.solat.my/';
+var Zon = Vue.resource(endpointUrl + 'zones.json');
+var Calendar = Vue.resource(endpointUrl + 'zones{/zone}.json');
+
 //var Calendar = Vue.resource(endpointUrl + 'year{/yy}/month{/mm}/locations{/zone}.json');
 
 var data =  {
@@ -18,7 +18,7 @@ var daily = new Vue({
   el: '#daily',
   data: data,
   methods: {
-    fetchData: function(yy,mm,zone) {
+    fetchData: function(yy, mm, dd, zone) {
     self = this
     Calendar.get({zone: zone}).then(function (response) {
         self.today = response.data;
@@ -52,45 +52,51 @@ var locations = new Vue({
 
   },
   mounted: function() {
-    this.setCookie();
-    this.fetchZones();
-    daily.fetchData(this.year, this.month, this.zone);
-    monthly.fetchData(this.year, this.month, this.zone);
+    this.init();
   },
 
   methods: {
+    init: function() {   
+      this.setCookies();
+      this.fetchZones();
+      daily.fetchData('', '', '', this.zone);
+      monthly.fetchData(this.year, this.month, this.zone);
+    },
+
     fetchZones: function() {
       self = this
-      Zon.get({}).then(function (response) {
-        self.zones = response.data
-      });
+      Zon.get({}).then(function (response) {self.zones = response.data });
     },
     
-    getThisZone: function(kod) {
+    setZone: function(kod) {
       this.zone = kod;
-      monthly.fetchData(this.year, this.month, this.zone);
-      this.setCookie();
+      this.init()
     },
-    setCookie: function() {
-      document.cookie = "zone=" + this.zone;
+
+    setCookies: function() {
+      setCookie('zone', this.zone);
     }
   }
 })
 
+function setCookie(cname, cvalue) {
+  document.cookie = cname + "=" + cvalue + ";";
+}
+
 function getCookie(cname) {
-    var name = cname + "=";
-    var decodedCookie = decodeURIComponent(document.cookie);
-    var ca = decodedCookie.split(';');
-    for(var i = 0; i <ca.length; i++) {
-        var c = ca[i];
-        while (c.charAt(0) == ' ') {
-            c = c.substring(1);
-        }
-        if (c.indexOf(name) == 0) {
-            return c.substring(name.length, c.length);
-        }
-    }
-    return "";
+  var name = cname + "=";
+  var decodedCookie = decodeURIComponent(document.cookie);
+  var ca = decodedCookie.split(';');
+  for(var i = 0; i <ca.length; i++) {
+      var c = ca[i];
+      while (c.charAt(0) == ' ') {
+          c = c.substring(1);
+      }
+      if (c.indexOf(name) == 0) {
+          return c.substring(name.length, c.length);
+      }
+  }
+  return "";
 }
 
 function detectLocation(){

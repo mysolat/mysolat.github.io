@@ -28,7 +28,7 @@
       <a class="navbar-brand" href="/">SOLAT.MY</a>
       <ul class="navbar-nav mr-auto">
         <li class="nav-item active">
-          <a class="nav-link" href="/index.html">TAKWIM <span class="sr-only">(current)</span></a>
+          <a class="nav-link" href="/"> {{locations.zone}} / {{locations.month}} <span class="sr-only">(current)</span></a>
         </li>
       </ul>
       <ul class="navbar-nav ml-auto" id="locations">
@@ -36,86 +36,120 @@
           <a class="nav-link dropdown-toggle" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{zone}}</a>
           <ul class="dropdown-menu">
             <li v-for="zone in zones" class="dropdown-item">
-              <a class="white-text" href="#" v-on:click="getThisZone(zone.zone)"> {{zone.zone}}</a>
+              <a class="white-text" href="#" v-on:click="setZone(zone.zone)"> {{zone.zone}}</a>
             </li>
           </ul>
         </li>
       </ul>
     </nav>
 
-    <div class="container" id='daily'>
+    <div class="container">
 
-      <center>
-        <h1>{{today.timetables[0].tarikh}}</h1>
-        <h3>{{today.locations[0]}}</h3>
-      </center>
-      <div class="row">
-        <div class="col"><i class="material-icons icon-lg">face</i></br>Imsak</br>{{days.timetables[0].imsak}}</div>
-        <div class="col"><i class="material-icons icon-lg">face</i></br>Subuh</br>{{days.timetables[0].subuh}}</div>
-        <div class="col"><i class="material-icons icon-lg">face</i></br>Syuruk</br>{{days.timetables[0].syuruk}}</div>
-        <div class="col"><i class="material-icons icon-lg">wb_sunny</i></br>Zohor</br>{{days.timetables[0].zohor}}</div>
-        <div class="col"><i class="material-icons icon-lg">wb_cloudy</i></br>Asar</br>{{days.timetables[0].asar}}</div>
-        <div class="col"><i class="material-icons icon-lg">brightness_3</i></br>Maghrib</br>{{days.timetables[0].maghrib}}</div>
-        <div class="col"><i class="material-icons icon-lg">brightness_4</i></br>Isyak</br>{{days.timetables[0].isyak}}</div>
-      </div>
+      <div class="section" id='daily'>
 
-    </div>
-
-    <div class="container"  id="monthly">
-      <div class="row white-text">
-      
-        <div class="col-md-12">
-          <h1>{{zone}} / {{month}}</h1>
-          <div class="btn-group">
-            <button type='button' class="btn btn-secondary" href="#!" v-bind:class="{'active': month == '1'}" v-on:click="getThisMonth('1')">01</button>
-            <button type='button' class="btn btn-secondary" href="#!" v-bind:class="{'active': month == '2'}" v-on:click="getThisMonth('2')">02</button>
-            <button type='button' class="btn btn-secondary" href="#!" v-bind:class="{'active': month == '3'}" v-on:click="getThisMonth('3')">03</button>
-            <button type='button' class="btn btn-secondary" href="#!" v-bind:class="{'active': month == '4'}" v-on:click="getThisMonth('4')">04</button>
-            <button type='button' class="btn btn-secondary" href="#!" v-bind:class="{'active': month == '5'}" v-on:click="getThisMonth('5')">05</button>
-            <button type='button' class="btn btn-secondary" href="#!" v-bind:class="{'active': month == '6'}" v-on:click="getThisMonth('6')">06</button>
-            <button type='button' class="btn btn-secondary" href="#!" v-bind:class="{'active': month == '7'}" v-on:click="getThisMonth('7')">07</button>
-            <button type='button' class="btn btn-secondary" href="#!" v-bind:class="{'active': month == '8'}" v-on:click="getThisMonth('8')">08</button>
-            <button type='button' class="btn btn-secondary" href="#!" v-bind:class="{'active': month == '9'}" v-on:click="getThisMonth('9')">09</button>
-            <button type='button' class="btn btn-secondary" href="#!" v-bind:class="{'active': month == '10'}" v-on:click="getThisMonth('10')">10</button>
-            <button type='button' class="btn btn-secondary" href="#!" v-bind:class="{'active': month == '11'}" v-on:click="getThisMonth('11')">11</button>
-            <button type='button' class="btn btn-secondary" href="#!" v-bind:class="{'active': month == '12'}" v-on:click="getThisMonth('12')">12</button>
+        <div class="text-center">
+          <h1>{{today.timetables[0].tarikh}}</h1>
+          <h2>{{today.timetables[0].tarikh_hijrah}}</h2>
+          <h3>{{today.locations[0]}}</h3>
+        </div>
+        <br/>
+        <div class="row text-center lead">
+          <div class="col">
+            <i class="material-icons icon-lg">face</i>
+            <h3>Imsak</h3>
+            <h4>{{today.timetables[0].imsak}}</h4>
           </div>
-          <br/>
-          <br/>
-          <div class="card">
-            <div class="card-block">
-              <table class="table table-sm">
-                <thead>
-                  <tr>
-                    <th>Tarikh</th>
-                    <th>Hari</th>
-                    <th>Subuh</th>
-                    <th>Syuruk</th>
-                    <th>Zohor</th>
-                    <th>Asar</th>
-                    <th>Maghrib</th>
-                    <th>Isyak</th>
-                    <th>Tarikh Hijrah</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr v-for="day in days.timetables">
-                    <td>{{day.tarikh}}</td>
-                    <td>{{day.hari}}</td>
-                    <td>{{day.subuh}}</td>
-                    <td>{{day.syuruk}}</td>
-                    <td>{{day.zohor}}</td>
-                    <td>{{day.asar}}</td>
-                    <td>{{day.maghrib}}</td>
-                    <td>{{day.isyak}}</td>
-                    <td>{{day.tarikh_hijrah}}</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
+          <div class="col">
+            <i class="material-icons icon-lg">face</i>
+            <h3>Subuh</h3>
+            <h4>{{today.timetables[0].subuh}}</h4>
+          </div>
+          <div class="col">
+            <i class="material-icons icon-lg">face</i>
+            <h3>Syuruk</h3>
+            <h4>{{today.timetables[0].syuruk}}</h4>
+          </div>
+          <div class="col">
+            <i class="material-icons icon-lg">wb_sunny</i>
+            <h3>Zohor</h3>
+            <h4>{{today.timetables[0].zohor}}</h4>
+          </div>
+          <div class="col">
+            <i class="material-icons icon-lg">wb_cloudy</i>
+            <h3>Asar</h3>
+            <h4>{{today.timetables[0].asar}}</h4>
+          </div>
+          <div class="col">
+            <i class="material-icons icon-lg">brightness_3</i>
+            <h3>Maghrib</h3>
+            <h4>{{today.timetables[0].maghrib}}</h4>
+          </div>
+          <div class="col">
+            <i class="material-icons icon-lg">brightness_4</i>
+            <h3>Isyak</h3>
+            <h4>{{today.timetables[0].isyak}}</h4>
           </div>
         </div>
+
       </div>
+
+      <div class="section"  id="monthly">
+        <div class="row white-text">
+        
+          <div class="col-md-12">
+            <div class="btn-group d-flex justify-content-center">
+              <a class="btn btn-secondary" href="#!" v-bind:class="{'active': month == '1'}" v-on:click="getThisMonth('1')">01</a>
+              <a class="btn btn-secondary" href="#!" v-bind:class="{'active': month == '2'}" v-on:click="getThisMonth('2')">02</a>
+              <a class="btn btn-secondary" href="#!" v-bind:class="{'active': month == '3'}" v-on:click="getThisMonth('3')">03</a>
+              <a class="btn btn-secondary" href="#!" v-bind:class="{'active': month == '4'}" v-on:click="getThisMonth('4')">04</a>
+              <a class="btn btn-secondary" href="#!" v-bind:class="{'active': month == '5'}" v-on:click="getThisMonth('5')">05</a>
+              <a class="btn btn-secondary" href="#!" v-bind:class="{'active': month == '6'}" v-on:click="getThisMonth('6')">06</a>
+              <a class="btn btn-secondary" href="#!" v-bind:class="{'active': month == '7'}" v-on:click="getThisMonth('7')">07</a>
+              <a class="btn btn-secondary" href="#!" v-bind:class="{'active': month == '8'}" v-on:click="getThisMonth('8')">08</a>
+              <a class="btn btn-secondary" href="#!" v-bind:class="{'active': month == '9'}" v-on:click="getThisMonth('9')">09</a>
+              <a class="btn btn-secondary" href="#!" v-bind:class="{'active': month == '10'}" v-on:click="getThisMonth('10')">10</a>
+              <a class="btn btn-secondary" href="#!" v-bind:class="{'active': month == '11'}" v-on:click="getThisMonth('11')">11</a>
+              <a class="btn btn-secondary" href="#!" v-bind:class="{'active': month == '12'}" v-on:click="getThisMonth('12')">12</a>
+            </div>
+            <br/>
+            <br/>
+            <div class="card">
+              <div class="card-block">
+                <table class="table table-sm">
+                  <thead>
+                    <tr>
+                      <th>Tarikh</th>
+                      <th>Hari</th>
+                      <th>Subuh</th>
+                      <th>Syuruk</th>
+                      <th>Zohor</th>
+                      <th>Asar</th>
+                      <th>Maghrib</th>
+                      <th>Isyak</th>
+                      <th>Tarikh Hijrah</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr v-for="day in days.timetables">
+                      <td>{{day.tarikh}}</td>
+                      <td>{{day.hari}}</td>
+                      <td>{{day.subuh}}</td>
+                      <td>{{day.syuruk}}</td>
+                      <td>{{day.zohor}}</td>
+                      <td>{{day.asar}}</td>
+                      <td>{{day.maghrib}}</td>
+                      <td>{{day.isyak}}</td>
+                      <td>{{day.tarikh_hijrah}}</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
     </div>
 
     <footer class="footer">
