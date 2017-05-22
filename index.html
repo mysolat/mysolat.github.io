@@ -5,10 +5,10 @@
     <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
     <meta content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no" name="viewport" />
     <meta content="Waktu Solat Malaysia" name="description" />
-    <meta content="Waktu,Solat,Taqwim,Jakim,takwim, takwim solat, taqwim solat" name="keywords" />
+    <meta content="Waktu, Solat, Taqwim, Jakim, takwim, takwim solat, taqwim solat" name="keywords" />
     <meta content="Mohd Khairi Mohd Adnan" name="author" />
     <title>Waktu Solat Malaysia</title>
-     <!-- Compiled and minified CSS -->
+       <!-- Compiled and minified CSS -->
     <!--link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous" -->
     <link rel="stylesheet" href="/css/material.min.css">
     <link rel="stylesheet" href="/css/style.css">
@@ -21,46 +21,105 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
 
- </head>
-  <body class="bg-faded">
-    <nav class="navbar navbar-toggleable-md navbar-inverse fixed-top bg-inverse navbar-fixed-top">
-      <a class="navbar-brand" href="index">SOLAT.MY</a>
 
+ </head>
+  <body class="bg-faded"  >
+    <nav class="navbar navbar-toggleable-md navbar-inverse fixed-top bg-inverse navbar-fixed-top">
+      <a class="navbar-brand" href="/">SOLAT.MY</a>
       <ul class="navbar-nav mr-auto">
         <li class="nav-item active">
-          <a class="nav-link" href="/takwim">TAKWIM <span class="sr-only">(current)</span></a>
+          <a class="nav-link" href="/index.html">TAKWIM <span class="sr-only">(current)</span></a>
         </li>
       </ul>
-
-      <ul class="navbar-nav mr-auto">
+      <ul class="navbar-nav ml-auto" id="locations">
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{zone}}</a>
+          <ul class="dropdown-menu">
+            <li v-for="zone in zones" class="dropdown-item">
+              <a class="white-text" href="#" v-on:click="getThisZone(zone.zone)"> {{zone.zone}}</a>
+            </li>
+          </ul>
+        </li>
       </ul>
-      <form class="form-inline mt-2 mt-md-0">
-        <input class="form-control mr-sm-2" type="text" placeholder="Search">
-        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-      </form>
     </nav>
-    
-    <div class="container" id='app'>
+
+    <div class="container" id='daily'>
 
       <center>
-        <h1>{{days.timetables[0].tarikh}}</h1>
-        <h3>{{days.locations[0]}}</h3>
+        <h1>{{today.timetables[0].tarikh}}</h1>
+        <h3>{{today.locations[0]}}</h3>
       </center>
       <div class="row">
-        <div class="col">Imsak</br>{{days.timetables[0].imsak}}</div>
-        <div class="col">Subuh</br>{{days.timetables[0].subuh}}</div>
-        <div class="col">Syuruk</br>{{days.timetables[0].syuruk}}</div>
-        <div class="col">Zohor</br>{{days.timetables[0].zohor}}</div>
-        <div class="col">Asae</br>{{days.timetables[0].asar}}</div>
-        <div class="col">Imsak</br>{{days.timetables[0].maghrib}}</div>
-        <div class="col">Imsak</br>{{days.timetables[0].isyak}}</div>
+        <div class="col">Imsak</br>{{today.timetables[0].imsak}}</div>
+        <div class="col">Subuh</br>{{today.timetables[0].subuh}}</div>
+        <div class="col">Syuruk</br>{{today.timetables[0].syuruk}}</div>
+        <div class="col">Zohor</br>{{today.timetables[0].zohor}}</div>
+        <div class="col">Asae</br>{{today.timetables[0].asar}}</div>
+        <div class="col">Imsak</br>{{today.timetables[0].maghrib}}</div>
+        <div class="col">Imsak</br>{{today.timetables[0].isyak}}</div>
       </div>
 
     </div>
-    
+
+    <div class="container"  id="monthly">
+      <div class="row white-text">
+      
+        <div class="col-md-12">
+          <h1>{{zone}} / {{month}}</h1>
+          <div class="btn-group">
+            <button type='button' class="btn btn-secondary" href="#!" v-bind:class="{'active': month == '1'}" v-on:click="getThisMonth('1')">01</button>
+            <button type='button' class="btn btn-secondary" href="#!" v-bind:class="{'active': month == '2'}" v-on:click="getThisMonth('2')">02</button>
+            <button type='button' class="btn btn-secondary" href="#!" v-bind:class="{'active': month == '3'}" v-on:click="getThisMonth('3')">03</button>
+            <button type='button' class="btn btn-secondary" href="#!" v-bind:class="{'active': month == '4'}" v-on:click="getThisMonth('4')">04</button>
+            <button type='button' class="btn btn-secondary" href="#!" v-bind:class="{'active': month == '5'}" v-on:click="getThisMonth('5')">05</button>
+            <button type='button' class="btn btn-secondary" href="#!" v-bind:class="{'active': month == '6'}" v-on:click="getThisMonth('6')">06</button>
+            <button type='button' class="btn btn-secondary" href="#!" v-bind:class="{'active': month == '7'}" v-on:click="getThisMonth('7')">07</button>
+            <button type='button' class="btn btn-secondary" href="#!" v-bind:class="{'active': month == '8'}" v-on:click="getThisMonth('8')">08</button>
+            <button type='button' class="btn btn-secondary" href="#!" v-bind:class="{'active': month == '9'}" v-on:click="getThisMonth('9')">09</button>
+            <button type='button' class="btn btn-secondary" href="#!" v-bind:class="{'active': month == '10'}" v-on:click="getThisMonth('10')">10</button>
+            <button type='button' class="btn btn-secondary" href="#!" v-bind:class="{'active': month == '11'}" v-on:click="getThisMonth('11')">11</button>
+            <button type='button' class="btn btn-secondary" href="#!" v-bind:class="{'active': month == '12'}" v-on:click="getThisMonth('12')">12</button>
+          </div>
+          <br/>
+          <br/>
+          <div class="card">
+            <div class="card-block">
+              <table class="table table-sm">
+                <thead>
+                  <tr>
+                    <th>Tarikh</th>
+                    <th>Hari</th>
+                    <th>Subuh</th>
+                    <th>Syuruk</th>
+                    <th>Zohor</th>
+                    <th>Asar</th>
+                    <th>Maghrib</th>
+                    <th>Isyak</th>
+                    <th>Tarikh Hijrah</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr v-for="day in days.timetables">
+                    <td>{{day.tarikh}}</td>
+                    <td>{{day.hari}}</td>
+                    <td>{{day.subuh}}</td>
+                    <td>{{day.syuruk}}</td>
+                    <td>{{day.zohor}}</td>
+                    <td>{{day.asar}}</td>
+                    <td>{{day.maghrib}}</td>
+                    <td>{{day.isyak}}</td>
+                    <td>{{day.tarikh_hijrah}}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 
     <footer class="footer">
-      <div class="footer-copyright cyan darken-1">
+      <div class="footer-copyright">
         <div class="container">
           Made in <a class="orange-text lighten-3" href="#"> Malaysia with love</a>
         </div>
