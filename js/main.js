@@ -32,7 +32,7 @@ function detectLocation(){
 
 
 Vue.config.devtools = true
-var endpointUrl = 'http://api.solat.my/';
+var endpointUrl = 'https://api.solat.my/';
 var Zon = Vue.resource(endpointUrl + 'zones.json');
 var Calendar = Vue.resource(endpointUrl + 'zones{/zone}.json');
 
