@@ -20,63 +20,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
     <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
-    <style>
 
-
-
-      /* Sticky footer styles
-      -------------------------------------------------- */
-      html {
-        position: relative;
-        min-height: 100%;
-      }
-      body {
-        /* Margin bottom by footer height */
-        margin-bottom: 60px;
-      }
-      .footer {
-        position: absolute;
-        bottom: 0;
-        width: 100%;
-        /* Set the fixed height of the footer here */
-        height: 60px;
-        line-height: 60px; /* Vertically center the text there */
-        background-color: #f5f5f5;
-      }
-
-
-      /* Custom page CSS
-      -------------------------------------------------- */
-      /* Not required for template or sticky footer method. */
-
-      body > .container {
-        padding: 60px 15px 0;
-      }
-
-      .footer > .container {
-        padding-right: 15px;
-        padding-left: 15px;
-      }
-
-      code {
-        font-size: 80%;
-      }
-
-      .bg-inverse {
-          background-color: #41B883 !important;
-      }
-      .btn-outline-success {
-          color: white;
-          background-image: none;
-          background-color: transparent;
-          border-color: white;
-      }
-      .btn-outline-success:hover {
-          color: #5cb85c;
-          background-color: #fff;
-          border-color: #fff;
-      }
-    </style>
 
 
 
@@ -108,18 +52,18 @@
           </h1>
           <h5>Month</h5>
           <div class="btn-group">
-            <button type='button' class="btn btn-secondary p-l-8 waves-effect waves-light cyan darken-1" href="#" style="margin-right: 2%;" v-bind:class="{&#39;active&#39;: month == &#39;1&#39;}" v-on:click="getThisMonth(&#39;1&#39;)">01</button>
-            <button type='button' class="btn btn-secondary p-l-8 waves-effect waves-light cyan darken-1" href="#" style="margin-right: 2%;" v-bind:class="{&#39;active&#39;: month == &#39;2&#39;}" v-on:click="getThisMonth(&#39;2&#39;)">02</button>
-            <button type='button' class="btn btn-secondary p-l-8 waves-effect waves-light cyan darken-1" href="#" style="margin-right: 2%;" v-bind:class="{&#39;active&#39;: month == &#39;3&#39;}" v-on:click="getThisMonth(&#39;3&#39;)">03</button>
-            <button type='button' class="btn btn-secondary p-l-8 waves-effect waves-light cyan darken-1" href="#" style="margin-right: 2%;" v-bind:class="{&#39;active&#39;: month == &#39;4&#39;}" v-on:click="getThisMonth(&#39;4&#39;)">04</button>
-            <button type='button' class="btn btn-secondary p-l-8 waves-effect waves-light cyan darken-1" href="#" style="margin-right: 2%;" v-bind:class="{&#39;active&#39;: month == &#39;5&#39;}" v-on:click="getThisMonth(&#39;5&#39;)">05</button>
-            <button type='button' class="btn btn-secondary p-l-8 waves-effect waves-light cyan darken-1" href="#" style="margin-right: 2%;" v-bind:class="{&#39;active&#39;: month == &#39;6&#39;}" v-on:click="getThisMonth(&#39;6&#39;)">06</button>
-            <button type='button' class="btn btn-secondary p-l-8 waves-effect waves-light cyan darken-1" href="#" style="margin-right: 2%;" v-bind:class="{&#39;active&#39;: month == &#39;7&#39;}" v-on:click="getThisMonth(&#39;7&#39;)">07</button>
-            <button type='button' class="btn btn-secondary p-l-8 waves-effect waves-light cyan darken-1" href="#" style="margin-right: 2%;" v-bind:class="{&#39;active&#39;: month == &#39;8&#39;}" v-on:click="getThisMonth(&#39;8&#39;)">08</button>
-            <button type='button' class="btn btn-secondary p-l-8 waves-effect waves-light cyan darken-1" href="#" style="margin-right: 2%;" v-bind:class="{&#39;active&#39;: month == &#39;9&#39;}" v-on:click="getThisMonth(&#39;9&#39;)">09</button>
-            <button type='button' class="btn btn-secondary p-l-8 waves-effect waves-light cyan darken-1" href="#" style="margin-right: 2%;" v-bind:class="{&#39;active&#39;: month == &#39;10&#39;}" v-on:click="getThisMonth(&#39;10&#39;)">10</button>
-            <button type='button' class="btn btn-secondary p-l-8 waves-effect waves-light cyan darken-1" href="#" style="margin-right: 2%;" v-bind:class="{&#39;active&#39;: month == &#39;11&#39;}" v-on:click="getThisMonth(&#39;11&#39;)">11</button>
-            <button type='button' class="btn btn-secondary p-l-8 waves-effect waves-light cyan darken-1" href="#" style="margin-right: 2%;" v-bind:class="{&#39;active&#39;: month == &#39;12&#39;}" v-on:click="getThisMonth(&#39;12&#39;)">12</button>
+            <button type='button' class="btn btn-secondary p-l-8 waves-effect waves-light" href="#" style="margin-right: 2%;" v-bind:class="{&#39;active&#39;: month == &#39;1&#39;}" v-on:click="getThisMonth(&#39;1&#39;)">01</button>
+            <button type='button' class="btn btn-secondary p-l-8 waves-effect waves-light" href="#" style="margin-right: 2%;" v-bind:class="{&#39;active&#39;: month == &#39;2&#39;}" v-on:click="getThisMonth(&#39;2&#39;)">02</button>
+            <button type='button' class="btn btn-secondary p-l-8 waves-effect waves-light" href="#" style="margin-right: 2%;" v-bind:class="{&#39;active&#39;: month == &#39;3&#39;}" v-on:click="getThisMonth(&#39;3&#39;)">03</button>
+            <button type='button' class="btn btn-secondary p-l-8 waves-effect waves-light" href="#" style="margin-right: 2%;" v-bind:class="{&#39;active&#39;: month == &#39;4&#39;}" v-on:click="getThisMonth(&#39;4&#39;)">04</button>
+            <button type='button' class="btn btn-secondary p-l-8 waves-effect waves-light" href="#" style="margin-right: 2%;" v-bind:class="{&#39;active&#39;: month == &#39;5&#39;}" v-on:click="getThisMonth(&#39;5&#39;)">05</button>
+            <button type='button' class="btn btn-secondary p-l-8 waves-effect waves-light" href="#" style="margin-right: 2%;" v-bind:class="{&#39;active&#39;: month == &#39;6&#39;}" v-on:click="getThisMonth(&#39;6&#39;)">06</button>
+            <button type='button' class="btn btn-secondary p-l-8 waves-effect waves-light" href="#" style="margin-right: 2%;" v-bind:class="{&#39;active&#39;: month == &#39;7&#39;}" v-on:click="getThisMonth(&#39;7&#39;)">07</button>
+            <button type='button' class="btn btn-secondary p-l-8 waves-effect waves-light" href="#" style="margin-right: 2%;" v-bind:class="{&#39;active&#39;: month == &#39;8&#39;}" v-on:click="getThisMonth(&#39;8&#39;)">08</button>
+            <button type='button' class="btn btn-secondary p-l-8 waves-effect waves-light" href="#" style="margin-right: 2%;" v-bind:class="{&#39;active&#39;: month == &#39;9&#39;}" v-on:click="getThisMonth(&#39;9&#39;)">09</button>
+            <button type='button' class="btn btn-secondary p-l-8 waves-effect waves-light" href="#" style="margin-right: 2%;" v-bind:class="{&#39;active&#39;: month == &#39;10&#39;}" v-on:click="getThisMonth(&#39;10&#39;)">10</button>
+            <button type='button' class="btn btn-secondary p-l-8 waves-effect waves-light" href="#" style="margin-right: 2%;" v-bind:class="{&#39;active&#39;: month == &#39;11&#39;}" v-on:click="getThisMonth(&#39;11&#39;)">11</button>
+            <button type='button' class="btn btn-secondary p-l-8 waves-effect waves-light" href="#" style="margin-right: 2%;" v-bind:class="{&#39;active&#39;: month == &#39;12&#39;}" v-on:click="getThisMonth(&#39;12&#39;)">12</button>
           </div>
           <br /><br />
           <div class="card">
@@ -194,16 +138,6 @@
       </div>
     </div>
     <footer class="footer">
-      <div class="container">
-        <div class="row">
-          <div class="col l6 s12">
-            <h5 class="white-text"></h5>
-            <p class="grey-text lighten-4">
-              Base on jakim e-solat site
-            </p>
-          </div>
-        </div>
-      </div>
       <div class="footer-copyright">
         <div class="container">
           Made in <a class="orange-text lighten-3" href="#"> Malaysia with love</a>
@@ -211,6 +145,6 @@
       </div>
     </footer>
 	
-    <script src="taqwim.js"></script>
+    <script src="/js/takwim.js"></script>
   </body>
 </html>
