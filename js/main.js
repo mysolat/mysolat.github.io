@@ -7,7 +7,7 @@ var Calendar = Vue.resource(endpointUrl + 'zones{/zone}.json');
 
 var data =  {
     zones: [],
-    zone: "JHR01",
+    zone: detectLocation(),
     year: 2017,
     month: 05,
     days: [],
@@ -80,7 +80,7 @@ var locations = new Vue({
 })
 
 function setCookie(cname, cvalue) {
-  document.cookie = cname + "=" + cvalue + ";";
+  return document.cookie = cname + "=" + cvalue + ";";
 }
 
 function getCookie(cname) {
@@ -100,10 +100,13 @@ function getCookie(cname) {
 }
 
 function detectLocation(){
-  var detected_location = "SGR02"
+  var cookie = "SGR02"
   if(getCookie('zone') == ""){
-    document.cookie = "zone=" + detected_location;
+    cookie = setCookie('zone', cookie) 
   }
-
+  else{
+    cookie = getCookie('zone')
+  }
+  return cookie; 
 }
 
