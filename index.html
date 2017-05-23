@@ -8,7 +8,7 @@
     <meta name="Classification" content="Social/Religion/Islam">
     <meta name="description" content="Waktu Solat dan Berbuka di Malaysia" />
     <meta name="keywords"    content="Sistem Panduan Solat Umat Islam , Waktu Solat, Malaysia, Falak JAKIM, Jadual Waktu Solat, Subuh,Dhuha,Zohor,Asar,Maghrib,Isyak, Taqwim, Jakim, takwim, takwim solat, taqwim solat"/>
-    <meta name="Language" content="Malay">
+    <meta name="Language" content="MS">
     <meta name="Rating" content="General">
     <meta name="google" value="notranslate">
 	  
@@ -132,12 +132,11 @@
                       <th>Asar</th>
                       <th>Maghrib</th>
                       <th>Isyak</th>
-                      <th>Tarikh Hijrah</th>
                     </tr>
                   </thead>
                   <tbody>
                     <tr v-for="day in days.timetables">
-                      <td>{{day.tarikh}}</td>
+                      <td>{{day.tarikh}}<br>{{day.tarikh_hijrah}}</td>
                       <td>{{day.hari}}</td>
                       <td>{{day.subuh}}</td>
                       <td>{{day.syuruk}}</td>
@@ -145,7 +144,6 @@
                       <td>{{day.asar}}</td>
                       <td>{{day.maghrib}}</td>
                       <td>{{day.isyak}}</td>
-                      <td>{{day.tarikh_hijrah}}</td>
                     </tr>
                   </tbody>
                 </table>
