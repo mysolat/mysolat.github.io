@@ -175,6 +175,27 @@
       ga('send', 'pageview');
 
     </script>
+    <script>
+    
+      // Try HTML5 geolocation.
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(function(position) {
+          var pos = {
+            lat: position.coords.latitude,
+            lng: position.coords.longitude
+          };
+          console.log(pos);
+        
+        })
+      }
+      else {
+        // Browser doesn't support Geolocation
+      }
+
+    
+
+
+    </script>
  <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBQ6tztXTPtjbH-F4TBmhF29QlRZcTL44E"
   type="text/javascript">
     
