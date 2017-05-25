@@ -84,7 +84,8 @@ var data =  {
     month: 05,
     days: [],
     today: [],
-    location: ''
+    location: '',
+    time_now: ''
   }
 
 var daily = new Vue({
@@ -130,7 +131,8 @@ var locations = new Vue({
   },
 
   methods: {
-    init: function() {   
+    init: function() {
+      this.time_now = moment().format('LT'); 
       this.setCookies();
       this.fetchZones();
       daily.fetchData('', '', '', this.zone);
@@ -149,9 +151,50 @@ var locations = new Vue({
 
     setCookies: function() {
       setCookie('zone', this.zone);
+    },
+
+    openSetting: function() {
+      $('#myModal').modal('show');
     }
   }
 })
 
 
+var modal = new Vue({
+  el: '#modal',
+  data: data,
+  computed: {
+
+  },
+  mounted: function() {
+    this.init();
+  },
+
+  methods: {
+    init: function() {  
+      this.setCookies();
+      this.fetchZones();
+      daily.fetchData('', '', '', this.zone);
+      monthly.fetchData(this.year, this.month, this.zone);
+    },
+
+    fetchZones: function() {
+      self = this
+      Zon.get({}).then(function (response) {self.zones = response.data });
+    },
+    
+    setZone: function(kod) {
+      this.zone = kod;
+      this.init()
+    },
+
+    setCookies: function() {
+      setCookie('zone', this.zone);
+    },
+
+    openSetting: function() {
+      $('#myModal').modal('show');
+    }
+  }
+})
 
