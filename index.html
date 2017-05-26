@@ -63,37 +63,37 @@
                   </h3>
                 </div>
                 <div class="row text-center lead">
-                  <div class="col">
+                  <div class="col" v-bind:class="{'activated': currentWaktu(today.timetables[0].imsak, today.timetables[0].subuh)}">
                     <i class="material-icons icon-lg">burst_mode</i>
                     <h3>Imsak</h3>
                     <h4>{{today.timetables[0].imsak}}</h4>
                   </div>
-                  <div class="col">
+                  <div class="col" v-bind:class="{'activated': currentWaktu(today.timetables[0].subuh, today.timetables[0].syuruk)}">
                     <i class="material-icons icon-lg">compare</i>
                     <h3>Subuh</h3>
                     <h4>{{today.timetables[0].subuh}}</h4>
                   </div>
-                  <div class="col">
+                  <div class="col" v-bind:class="{'activated': currentWaktu(today.timetables[0].syuruk, today.timetables[0].zohor)}">
                     <i class="material-icons icon-lg">filter_hdr</i>
                     <h3>Syuruk</h3>
                     <h4>{{today.timetables[0].syuruk}}</h4>
                   </div>
-                  <div class="col">
+                  <div class="col" v-bind:class="{'activated': currentWaktu(today.timetables[0].zohor, today.timetables[0].asar)}">
                     <i class="material-icons icon-lg">wb_sunny</i>
                     <h3>Zohor</h3>
                     <h4>{{today.timetables[0].zohor}}</h4>
                   </div>
-                  <div class="col">
+                  <div class="col" v-bind:class="{'activated': currentWaktu(today.timetables[0].asar, today.timetables[0].maghrib)}">
                     <i class="material-icons icon-lg">wb_cloudy</i>
                     <h3>Asar</h3>
                     <h4>{{today.timetables[0].asar}}</h4>
                   </div>
-                  <div class="col">
+                  <div class="col" v-bind:class="{'activated': currentWaktu(today.timetables[0].maghrib, today.timetables[0].isyak)}">
                     <i class="material-icons icon-lg">brightness_3</i>
                     <h3>Maghrib</h3>
                     <h4>{{today.timetables[0].maghrib}}</h4>
                   </div>
-                  <div class="col">
+                  <div class="col" v-bind:class="{'activated': currentWaktu(today.timetables[0].isyak)}">
                     <i class="material-icons icon-lg">brightness_4</i>
                     <h3>Isyak</h3>
                     <h4>{{today.timetables[0].isyak}}</h4>

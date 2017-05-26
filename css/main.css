@@ -430,3 +430,7 @@ body.modal-open{
 .section-images{
     padding-bottom: 0;
 }
+
+.activated{
+  border:1px solid white;
+}

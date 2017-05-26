@@ -99,6 +99,18 @@ var daily = new Vue({
         self.today = response.data;
         self.location = self.today.locations[0]
       });
+    },
+    currentWaktu : function(waktu, waktu2){
+      var waktu_first = moment(waktu, 'HH:mm');
+      var waktu_second = moment(waktu2, 'HH:mm');
+      var time_now = moment(this.time_now, 'HH:mm');
+      console.log("New waktu" + waktu_first);
+      console.log("Waktu Second" + waktu_second == null);
+      console.log("Time Now" + time_now);
+      console.log(time_now.isBefore(waktu_first));
+      if(waktu_second == null){result = time_now.isBefore(waktu_first)}
+      else{result = time_now.isBetween(waktu_first, waktu_second)}
+      return result
     }
   }
 })
