@@ -133,7 +133,10 @@ var locations = new Vue({
 
   methods: {
     init: function() {
-      this.time_now = moment().format('LT'); 
+      this.time_now = moment().format('LTS'); 
+      setInterval(() => {
+        this.updateCurrentTime();
+      }, 1 * 1000);
       this.setCookies();
       this.fetchZones();
       daily.fetchData('', '', '', this.zone);
@@ -156,6 +159,10 @@ var locations = new Vue({
 
     openSetting: function() {
       $('#myModal').modal('show');
+    },
+
+    updateCurrentTime: function() {
+      this.time_now = moment().format('LTS');
     }
   }
 })
@@ -203,6 +210,7 @@ var modal = new Vue({
     openSetting: function() {
       $('#myModal').modal('show');
     }
+    
   }
 })
 
