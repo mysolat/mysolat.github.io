@@ -8,6 +8,11 @@ body {
   /* Margin bottom by footer height */
   margin-bottom: 60px;
 }
+
+body.modal-open{
+  padding-right: 0 !important;  
+}
+
 .footer {
   position: absolute;
   bottom: 0;
