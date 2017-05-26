@@ -85,7 +85,8 @@ var data =  {
     days: [],
     today: [],
     location: '',
-    time_now: ''
+    time_now: '',
+    search: ''
   }
 
 var daily = new Vue({
@@ -164,6 +165,11 @@ var modal = new Vue({
   el: '#modal',
   data: data,
   computed: {
+    filteredItems() {
+      return this.zones.filter(zone => {
+         return zone.locations[0].toLowerCase().includes(this.search.toLowerCase());
+      })
+    }
 
   },
   mounted: function() {
@@ -185,6 +191,7 @@ var modal = new Vue({
     
     setZone: function(kod) {
       this.zone = kod;
+      this.search = "";
       this.init()
       $('#myModal').modal('hide');
     },

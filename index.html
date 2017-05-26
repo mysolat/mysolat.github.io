@@ -182,8 +182,13 @@
                           <h4 class="title title-up">Location</h4>
                       </div>
                       <div class="modal-body">
+                          <div class="row justify-content-center">
+                            <div class="col-8">
+                              <input type="text" v-model="search" class="form-control" style="margin-bottom: 15px;" placeholder="Search Zone .... ">
+                            </div>
+                          </div>
                         <div class="row">
-                          <div class="col" v-for="zone in zones">
+                          <div class="col" v-for="zone in filteredItems">
                             <a class="btn btn-primary btn-simple btn-round btn-sm" style="margin-bottom: 5px;" href="#" v-on:click="setZone(zone.zone)"> {{zone.locations[0]}}</a>
                           </div>
                         </div>
