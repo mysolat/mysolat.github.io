@@ -186,6 +186,7 @@ var modal = new Vue({
     setZone: function(kod) {
       this.zone = kod;
       this.init()
+      $('#myModal').modal('hide');
     },
 
     setCookies: function() {
