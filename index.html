@@ -17,8 +17,6 @@
     <meta name="google" value="notranslate">
     
     <title>Waktu Solat Malaysia</title>
-    <!--     Fonts and icons     -->
-    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!-- CSS Files -->
     <link href="/css/bootstrap.min.css" rel="stylesheet" />
@@ -73,7 +71,7 @@
                   </div>
                 </div>
                 <div class="row">
-                  <div class="col pb-3" v-for="zone in filteredItems">
+                  <div class="col pb-" v-for="zone in filteredItems">
                     <a class="btn btn-primary btn-simple btn-round btn-sm" href="#!" v-on:click="setZone(zone.zone)"> {{zone.locations[0]}}</a>
                   </div>
                 </div>
@@ -155,18 +153,18 @@
         <div  id="monthly" class="section" >
             <div class="container">
                 <div class="button-container">
-                    <a class="btn btn-default btn-round btn-lg btn-circle" href="#!" v-bind:class="{'active': month == '1'}" v-on:click="getThisMonth('1')">01</a>
-                    <a class="btn btn-default btn-round btn-lg btn-circle" href="#!" v-bind:class="{'active': month == '2'}" v-on:click="getThisMonth('2')">02</a>
-                    <a class="btn btn-default btn-round btn-lg btn-circle" href="#!" v-bind:class="{'active': month == '3'}" v-on:click="getThisMonth('3')">03</a>
-                    <a class="btn btn-default btn-round btn-lg btn-circle" href="#!" v-bind:class="{'active': month == '4'}" v-on:click="getThisMonth('4')">04</a>
-                    <a class="btn btn-default btn-round btn-lg btn-circle" href="#!" v-bind:class="{'active': month == '5'}" v-on:click="getThisMonth('5')">05</a>
-                    <a class="btn btn-default btn-round btn-lg btn-circle" href="#!" v-bind:class="{'active': month == '6'}" v-on:click="getThisMonth('6')">06</a>
-                    <a class="btn btn-default btn-round btn-lg btn-circle" href="#!" v-bind:class="{'active': month == '7'}" v-on:click="getThisMonth('7')">07</a>
-                    <a class="btn btn-default btn-round btn-lg btn-circle" href="#!" v-bind:class="{'active': month == '8'}" v-on:click="getThisMonth('8')">08</a>
-                    <a class="btn btn-default btn-round btn-lg btn-circle" href="#!" v-bind:class="{'active': month == '9'}" v-on:click="getThisMonth('9')">09</a>
-                    <a class="btn btn-default btn-round btn-lg btn-circle" href="#!" v-bind:class="{'active': month == '10'}" v-on:click="getThisMonth('10')">10</a>
-                    <a class="btn btn-default btn-round btn-lg btn-circle" href="#!" v-bind:class="{'active': month == '11'}" v-on:click="getThisMonth('11')">11</a>
-                    <a class="btn btn-default btn-round btn-lg btn-circle" href="#!" v-bind:class="{'active': month == '12'}" v-on:click="getThisMonth('12')">12</a>
+                    <a class="btn btn-default btn-round btn-lg btn-circle" href="#!" v-bind:class="{'btn-primary': month == '1'}" v-on:click="getThisMonth('1')">01</a>
+                    <a class="btn btn-default btn-round btn-lg btn-circle" href="#!" v-bind:class="{'btn-primary': month == '2'}" v-on:click="getThisMonth('2')">02</a>
+                    <a class="btn btn-default btn-round btn-lg btn-circle" href="#!" v-bind:class="{'btn-primary': month == '3'}" v-on:click="getThisMonth('3')">03</a>
+                    <a class="btn btn-default btn-round btn-lg btn-circle" href="#!" v-bind:class="{'btn-primary': month == '4'}" v-on:click="getThisMonth('4')">04</a>
+                    <a class="btn btn-default btn-round btn-lg btn-circle" href="#!" v-bind:class="{'btn-primary': month == '5'}" v-on:click="getThisMonth('5')">05</a>
+                    <a class="btn btn-default btn-round btn-lg btn-circle" href="#!" v-bind:class="{'btn-primary': month == '6'}" v-on:click="getThisMonth('6')">06</a>
+                    <a class="btn btn-default btn-round btn-lg btn-circle" href="#!" v-bind:class="{'btn-primary': month == '7'}" v-on:click="getThisMonth('7')">07</a>
+                    <a class="btn btn-default btn-round btn-lg btn-circle" href="#!" v-bind:class="{'btn-primary': month == '8'}" v-on:click="getThisMonth('8')">08</a>
+                    <a class="btn btn-default btn-round btn-lg btn-circle" href="#!" v-bind:class="{'btn-primary': month == '9'}" v-on:click="getThisMonth('9')">09</a>
+                    <a class="btn btn-default btn-round btn-lg btn-circle" href="#!" v-bind:class="{'btn-primary': month == '10'}" v-on:click="getThisMonth('10')">10</a>
+                    <a class="btn btn-default btn-round btn-lg btn-circle" href="#!" v-bind:class="{'btn-primary': month == '11'}" v-on:click="getThisMonth('11')">11</a>
+                    <a class="btn btn-default btn-round btn-lg btn-circle" href="#!" v-bind:class="{'btn-primary': month == '12'}" v-on:click="getThisMonth('12')">12</a>
                 </div>
 
                 <br>
