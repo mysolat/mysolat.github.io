@@ -100,7 +100,7 @@ var daily = new Vue({
         self.location = self.today.locations[0]
       });
     },
-    currentWaktu : function(waktu, waktu2){
+    highlightCurrent : function(waktu, waktu2){
       var waktu_first = moment(waktu, 'HH:mm');
       var waktu_second = moment(waktu2, 'HH:mm');
       var time_now = moment(this.time_now, 'HH:mm');
@@ -108,8 +108,13 @@ var daily = new Vue({
       console.log("Waktu Second" + waktu_second == null);
       console.log("Time Now" + time_now);
       console.log(time_now.isBefore(waktu_first));
-      if(waktu_second == null){result = time_now.isBefore(waktu_first)}
-      else{result = time_now.isBetween(waktu_first, waktu_second)}
+      if (waktu_second == null) {
+        result = time_now.isBefore(waktu_first)
+      }
+      else {
+        result = time_now.isBetween(waktu_first, waktu_second)
+      }
+      
       return result
     }
   }
@@ -170,7 +175,7 @@ var locations = new Vue({
     },
 
     openSetting: function() {
-      $('#myModal').modal('show');
+      $('#modal-option').modal('show');
     },
 
     updateCurrentTime: function() {
@@ -180,8 +185,8 @@ var locations = new Vue({
 })
 
 
-var modal = new Vue({
-  el: '#modal',
+var settings = new Vue({
+  el: '#settings',
   data: data,
   computed: {
     filteredItems() {
@@ -212,7 +217,7 @@ var modal = new Vue({
       this.zone = kod;
       this.search = "";
       this.init()
-      $('#myModal').modal('hide');
+      $('#modal-option').modal('hide');
     },
 
     setCookies: function() {
@@ -220,7 +225,7 @@ var modal = new Vue({
     },
 
     openSetting: function() {
-      $('#myModal').modal('show');
+      $('#modal-option').modal('show');
     }
     
   }
