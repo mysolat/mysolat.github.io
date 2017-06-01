@@ -61,7 +61,7 @@ var daily = new Vue({
         self.location = self.today.locations[0]
       });
     },
-    highlightCurrent : function(waktu, waktu2){
+    highlightCurrent: function(waktu, waktu2){
       var waktu_first = moment(waktu, 'HH:mm:ss A');
       var waktu_second = moment(waktu2, 'HH:mm:ss A');
       var time_now = moment(this.time_now, 'HH:mm:ss A');
