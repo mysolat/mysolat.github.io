@@ -21,42 +21,6 @@ function getCookie(cname) {
 function detectLocation(){
   var cookie = "SGR02"
 
-      var map, infoWindow;
-      function initMap() {
-        map = new google.maps.Map(document.getElementById('map'), {
-          center: {lat: -34.397, lng: 150.644},
-          zoom: 6
-        });
-        infoWindow = new google.maps.InfoWindow;
-
-        // Try HTML5 geolocation.
-        if (navigator.geolocation) {
-          navigator.geolocation.getCurrentPosition(function(position) {
-            var pos = {
-              lat: position.coords.latitude,
-              lng: position.coords.longitude
-            };
-
-            infoWindow.setPosition(pos);
-            infoWindow.setContent('Location found.');
-            infoWindow.open(map);
-            map.setCenter(pos);
-          }, function() {
-            handleLocationError(true, infoWindow, map.getCenter());
-          });
-        } else {
-          // Browser doesn't support Geolocation
-          handleLocationError(false, infoWindow, map.getCenter());
-        }
-      }
-
-      function handleLocationError(browserHasGeolocation, infoWindow, pos) {
-        infoWindow.setPosition(pos);
-        infoWindow.setContent(browserHasGeolocation ?
-                              'Error: The Geolocation service failed.' :
-                              'Error: Your browser doesn\'t support geolocation.');
-        infoWindow.open(map);
-      }
 
 
   if(getCookie('zone') == ""){
@@ -74,8 +38,6 @@ Vue.config.devtools = true
 var endpointUrl = 'https://api.solat.my/';
 var Zon = Vue.resource(endpointUrl + 'zones.json');
 var Calendar = Vue.resource(endpointUrl + 'zones{/zone}.json');
-
-//var Calendar = Vue.resource(endpointUrl + 'year{/yy}/month{/mm}/locations{/zone}.json');
 
 var data =  {
     zones: [],
@@ -101,13 +63,9 @@ var daily = new Vue({
       });
     },
     highlightCurrent : function(waktu, waktu2){
-      var waktu_first = moment(waktu, 'HH:mm');
-      var waktu_second = moment(waktu2, 'HH:mm');
-      var time_now = moment(this.time_now, 'HH:mm');
-      console.log("New waktu" + waktu_first);
-      console.log("Waktu Second" + waktu_second == null);
-      console.log("Time Now" + time_now);
-      console.log(time_now.isBefore(waktu_first));
+      var waktu_first = moment(waktu, 'HH:mm:ss A');
+      var waktu_second = moment(waktu2, 'HH:mm:ss A');
+      var time_now = moment(this.time_now, 'HH:mm:ss A');
       if (waktu_second == null) {
         result = time_now.isBefore(waktu_first)
       }
@@ -150,10 +108,8 @@ var locations = new Vue({
 
   methods: {
     init: function() {
-      this.time_now = moment().format('LTS'); 
-      setInterval(() => {
-        this.updateCurrentTime();
-      }, 1 * 1000);
+      this.updateCurrentTime;
+      setInterval(() => { this.updateCurrentTime(); }, 1 * 1000);
       this.setCookies();
       this.fetchZones();
       daily.fetchData('', '', '', this.zone);
