@@ -432,6 +432,5 @@ body.modal-open{
 }
 
 .activated{
-  border:1px solid white;
-  border-radius: 25px;
+  text-shadow: 0px 2px 12px #F96332;
 }
