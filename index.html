@@ -169,29 +169,32 @@
                 </div>
 
                 <br>
+                <br>
                 <table class="table table-hover">
                   <thead>
                     <tr>
-                      <th width="50px">Tarikh</th>
-                      <th width="50px">Hari</th>
-                      <th width="50px">Subuh</th>
-                      <th width="50px">Syuruk</th>
-                      <th width="50px">Zohor</th>
-                      <th width="50px">Asar</th>
-                      <th width="50px">Maghrib</th>
-                      <th width="50px">Isyak</th>
+                      <th width="200px">Tarikh</th>
+                      <th width="10%">Hari</th>
+                      <th width="10%" class="text-center">Subuh</th>
+                      <th width="10%" class="text-center">Syuruk</th>
+                      <th width="10%" class="text-center">Zohor</th>
+                      <th width="10%" class="text-center">Asar</th>
+                      <th width="10%" class="text-center">Maghrib</th>
+                      <th width="10%" class="text-center">Isyak</th>
+                      <th width="200px" class="text-right">Hijrah</th>
                     </tr>
                   </thead>
                   <tbody>
                     <tr v-for="day in days.timetables">
-                      <td>{{day.tarikh}}<br>{{day.tarikh_hijrah}}</td>
+                      <td>{{day.tarikh}}</td>
                       <td>{{day.hari}}</td>
-                      <td>{{day.subuh}}</td>
-                      <td>{{day.syuruk}}</td>
-                      <td>{{day.zohor}}</td>
-                      <td>{{day.asar}}</td>
-                      <td>{{day.maghrib}}</td>
-                      <td>{{day.isyak}}</td>
+                      <td class="text-center" >{{day.subuh}}</td>
+                      <td class="text-center" >{{day.syuruk}}</td>
+                      <td class="text-center" >{{day.zohor}}</td>
+                      <td class="text-center" >{{day.asar}}</td>
+                      <td class="text-center" >{{day.maghrib}}</td>
+                      <td class="text-center" >{{day.isyak}}</td>
+                      <td class="text-right">{{day.tarikh_hijrah}}</td>
                     </tr>
                   </tbody>
                 </table>
