@@ -42,7 +42,7 @@
 
 <body class="profile-page">
     <!-- Navbar -->
-    <nav class="navbar navbar-toggleable-md bg-primary fixed-top navbar-transparent " color-on-scroll="500" id='main'>
+    <nav id='main' class="navbar navbar-toggleable-md bg-primary fixed-top navbar-transparent " color-on-scroll="500" >
       <a class="navbar-brand" href="/">SOLAT.MY</a>
       <ul class="navbar-nav mr-auto">
         <li class="nav-item active">
@@ -51,39 +51,40 @@
       </ul>
       <ul class="navbar-nav ml-auto">
         <li class="nav-item">
-         <a  href="#" v-on:click="openSetting()"> <span class="material-icons">settings</span></a>
+          <a  href="#" v-on:click="openSetting()"> <span class="material-icons">settings</span></a>
         </li>
       </ul>
     </nav>
 
-     <div id="settings">
-        <div class="modal fade" id="modal-opation" tabindex="-1" role="dialog" aria-labelledby="modal-opation-label" style="display: none;" aria-hidden="true">
-            <div class="modal-dialog modal-lg">
-                <div class="modal-content">
-                    <div class="modal-header justify-content-center">
-                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
-                            <i class="material-icons">close</i>
-                        </button>
-                        <h4 class="title title-up">Location</h4>
-                    </div>
-                    <div class="modal-body">
-                        <div class="row justify-content-center">
-                          <div class="col-8">
-                            <input type="text" v-model="search" class="form-control" style="margin-bottom: 15px;" placeholder="Search Zone .... ">
-                          </div>
-                        </div>
-                      <div class="row">
-                        <div class="col" v-for="zone in filteredItems">
-                          <a class="btn btn-primary btn-simple btn-round btn-sm" style="margin-bottom: 5px;" href="#" v-on:click="setZone(zone.zone)"> {{zone.locations[0]}}</a>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="modal-footer">
-                    </div>
+    <div id="settings">
+      <div id="modal-option" class="modal fade"  tabindex="-1" role="dialog" aria-labelledby="modal-option-label" style="display: none;" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+          <div class="modal-content">
+            <div class="modal-header justify-content-center">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                    <i class="material-icons">close</i>
+                </button>
+                <h4 class="title title-up">Location</h4>
+            </div>
+            <div class="modal-body">
+                <div class="row justify-content-center">
+                  <div class="col-8">
+                    <input type="text" v-model="search" class="form-control" style="margin-bottom: 15px;" placeholder="Search Zone .... ">
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col pb-3" v-for="zone in filteredItems">
+                    <a class="btn btn-primary btn-simple btn-round btn-sm" href="#!" v-on:click="setZone(zone.zone)"> {{zone.locations[0]}}</a>
+                  </div>
                 </div>
             </div>
+            <div class="modal-footer">
+
+            </div>
+          </div>
         </div>
       </div>
+    </div>
 
     <!-- End Navbar -->
     <div class="wrapper">
