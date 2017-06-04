@@ -19,7 +19,7 @@ function getCookie(cname) {
 }
 
 function detectLocation(){
-  var cookie = "SGR02"
+  var cookie = "SGR03"
 
   if(getCookie('zone') == ""){
     setCookie('zone', cookie)
