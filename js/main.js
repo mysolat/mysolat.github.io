@@ -19,7 +19,7 @@ function getCookie(cname) {
 }
 
 function detectLocation(){
-  var cookie = "SGR03"
+  var cookie = "SGR01"
 
   if(getCookie('zone') == ""){
     setCookie('zone', cookie)
@@ -34,8 +34,8 @@ function detectLocation(){
 
 Vue.config.devtools = true
 var endpointUrl = 'https://api.solat.my/';
-var Zon = Vue.resource(endpointUrl + 'zones.json');
-var Calendar = Vue.resource(endpointUrl + 'zones{/zone}.json');
+var Zon = Vue.resource(endpointUrl + 'zon.json');
+var Calendar = Vue.resource(endpointUrl + 'zon{/zone}.json');
 var date = new Date();
 
 var data =  {
