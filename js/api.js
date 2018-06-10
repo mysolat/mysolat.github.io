@@ -33,27 +33,25 @@ function detectLocation(){
 
 
 Vue.config.devtools = true
-var endpointUrl = 'https://api.solat.my/';
-var Zon = Vue.resource(endpointUrl + 'zon.json');
-var Calendar = Vue.resource(endpointUrl + 'zon{/zone}.json');
-var Locations = Vue.resource(endpointUrl + 'negeri.json');
 var date = new Date();
 
-var data =  {
-    year: date.getFullYear(),
-    month: date.getMonth()+1,
-    zones: [],
-    zone: detectLocation(),
-    days: [],
-    today: [],
-    location: '',
-    time_now: '',
-    search: ''
-  }
 
 new Vue({
   el: '#main',
-  data: data,
+  data: function () {
+    return {
+      endpoint: 'https://api.solat.my',
+      year: date.getFullYear(),
+      month: date.getMonth()+1,
+      zones: [],
+      zone: "SGR03", // detectLocation()
+      days: [],
+      today: [],
+      location: '',
+      time_now: '',
+      search: ''
+    }
+  }, 
   computed: {
    //filteredZones() {
    //   return this.zones
@@ -68,30 +66,28 @@ new Vue({
 
   methods: {
     init: function() {
-     
       this.fetchDaily('', '', '', this.zone);
       this.fetchMonthly(this.year, this.month, this.zone);
-  
     },
 
     fetchLocations: function() {
-      self = this
-      Locations.get({}).then(function (response) { self.zones = response.data })
+      var url = this.endpoint + '/negeri.json'
+      this.$http.get(url).then(function (response) { this.zones = response.data })
     },
 
 
     fetchDaily: function(yy, mm, dd, zone) {
-      self = this
-      Calendar.get({zone: zone}).then(function (response) {
-        self.today = response.data;
-        self.location = self.today.locations.join(', ')
+        var url = this.endpoint + `/zon/${zone}.json`
+        this.$http.get(url).then(function (response) {
+        this.today = response.data;
+        this.location = this.today.locations.join(', ')
       });
     },
 
     fetchMonthly: function(yy, mm, zone) {
-      self = this
-      Calendar.get({year: yy, month: mm, zone: zone}).then(function (response) {    
-        self.days = response.data;
+      var url = this.endpoint + `/year/${this.year}/month/${this.month}/zon/${this.zone}.json`
+       this.$http.get(url).then(function (response) {    
+        this.days = response.data;
       });
     },
     
@@ -118,7 +114,7 @@ new Vue({
 
     getThisMonth: function(mm) {
       this.month = mm
-      self.fetchMonthly(this.year, mm, this.zone);
+      this.fetchMonthly(this.year, mm, this.zone);
     },
 
     highlightCurrent: function(waktu, waktu2){
