@@ -55,25 +55,23 @@ new Vue({
   el: '#main',
   data: data,
   computed: {
-   filteredItems() {
-      return this.zones
-    }
+   //filteredZones() {
+   //   return this.zones
+   // }
   },
 
   mounted: function() {
+    this.setCookies();
     this.init();
+    this.timeNow();
   },
 
   methods: {
     init: function() {
      
-      this.setCookies();
       this.fetchDaily('', '', '', this.zone);
       this.fetchMonthly(this.year, this.month, this.zone);
-      this.fetchLocations();
-
-      this.updateCurrentTime;
-      setInterval(() => { this.updateCurrentTime(); }, 1 * 1000);
+  
     },
 
     fetchLocations: function() {
@@ -110,18 +108,18 @@ new Vue({
     },
  
     openSetting: function() {
+      this.fetchLocations();
       $('#modal-option').modal('show');
     },
 
-    updateCurrentTime: function() {
-      this.time_now = moment().format('LTS');
+    timeNow: function() {
+      setInterval(() => {this.time_now = moment().format('LTS');}, 1 * 1000);
     },   
 
     getThisMonth: function(mm) {
       this.month = mm
       self.fetchMonthly(this.year, mm, this.zone);
     },
-    
 
     highlightCurrent: function(waktu, waktu2){
       var start = moment(waktu, 'HH:mm:ss A');
@@ -133,7 +131,6 @@ new Vue({
       else {
         result = time_now.isBetween(start, end)
       }
-      
       return result
     }
   }

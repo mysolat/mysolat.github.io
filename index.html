@@ -73,7 +73,7 @@
                 <div class="row">
                  
                     <ul class="list-group list-group-flush">
-                     <li class="list-group-item" v-for="zone in filteredItems">
+                     <li class="list-group-item" v-for="zone in zones">
                         <h6 class="text-dark"> {{zone.negeri}} </h6>
                         <ul class="list-group">
                           <li v-for="lokasi in zone.lokasi">
@@ -96,7 +96,7 @@
     </div>
 
         <!-- Intro Header -->
-    <header class="masthead" id='daily'>
+    <header class="masthead" id='daily' v-if="today.timetables">
       <div class="intro-body">
         <div class="container">
           <div class="row">
@@ -153,7 +153,7 @@
                     <h3>Isyak</h3>
                     <h4 class="text-thin">{{today.timetables[0].isyak}}</h4>
                   </div>
-                 </div>
+              </div>
 
               <a href="#monthly" class="btn btn-circle js-scroll-trigger">
                 <i class="material-icons animated">keyboard_arrow_down</i>
