@@ -18,19 +18,6 @@ function getCookie(cname) {
   return "";
 }
 
-function detectLocation(){
-  var cookie = "SGR03"
-
-  if(getCookie('zone') == ""){
-    setCookie('zone', cookie)
-  }
-  else{
-    cookie = getCookie('zone')
-  }
-  return cookie; 
-}
-
-
 
 Vue.config.devtools = true
 var date = new Date();
@@ -44,7 +31,7 @@ new Vue({
       year: date.getFullYear(),
       month: date.getMonth()+1,
       zones: [],
-      zone: "SGR03", // detectLocation()
+      zone: this.detectLocation(), // detectLocation()
       days: [],
       today: [],
       location: '',
@@ -59,13 +46,13 @@ new Vue({
   },
 
   mounted: function() {
-    this.setCookies();
     this.init();
     this.timeNow();
   },
 
   methods: {
     init: function() {
+      this.setCookie('zone', this.zone);
       this.fetchDaily('', '', '', this.zone);
       this.fetchMonthly(this.year, this.month, this.zone);
     },
@@ -98,10 +85,6 @@ new Vue({
       this.search = "";
       $('#modal-option').modal('hide');
     },
-
-    setCookies: function() {
-      setCookie('zone', this.zone);
-    },
  
     openSetting: function() {
       this.fetchLocations();
@@ -128,6 +111,40 @@ new Vue({
         result = time_now.isBetween(start, end)
       }
       return result
+    },
+
+    detectLocation: function(){
+      console.log("hahah")
+      var cookie = "SGR01"
+      if (this.getCookie('zone') == ""){
+        this.setCookie('zone', cookie)
+      } else {
+        cookie = this.getCookie('zone')
+      }
+      return cookie; 
+    },
+
+    setCookie: function (cname, cvalue) {
+      document.cookie = cname + "=" + cvalue + ";";
+    },
+
+    getCookie: function (cname) {
+      var name = cname + "=";
+      var decodedCookie = decodeURIComponent(document.cookie);
+      var ca = decodedCookie.split(';');
+      for(var i = 0; i < ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0) == ' ') {
+          c = c.substring(1);
+        }
+        if (c.indexOf(name) == 0) {
+          return c.substring(name.length, c.length);
+        }
+      }
+      return "";
     }
+
+
+
   }
 })
