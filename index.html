@@ -127,42 +127,42 @@
 
               <div class="row text-center lead">
                 <div class="col"
-                  v-bind:class="{'activated': highlightCurrent(today.prayerTime[0].imsak, today.prayerTime[0].subuh)}">
+                  v-bind:class="{'activated': highlightCurrent(today.prayerTime[0].imsak, today.prayerTime[0].fajr)}">
                   <i class="material-icons icon-lg">burst_mode</i>
                   <h3>Imsak</h3>
                   <h4 class="text-thin">{{today.prayerTime[0].imsak}}</h4>
                 </div>
                 <div class="col"
-                  v-bind:class="{'activated': highlightCurrent(today.prayerTime[0].subuh, today.prayerTime[0].syuruk)}">
+                  v-bind:class="{'activated': highlightCurrent(today.prayerTime[0].fajr, today.prayerTime[0].syuruk)}">
                   <i class="material-icons icon-lg">compare</i>
                   <h3>Subuh</h3>
                   <h4 class="text-thin">{{today.prayerTime[0].fajr}}</h4>
                 </div>
                 <div class="col"
-                  v-bind:class="{'activated': highlightCurrent(today.prayerTime[0].syuruk, today.prayerTime[0].zohor)}">
+                  v-bind:class="{'activated': highlightCurrent(today.prayerTime[0].syuruk, today.prayerTime[0].dhuhr)}">
                   <i class="material-icons icon-lg">filter_hdr</i>
                   <h3>Syuruk</h3>
                   <h4 class="text-thin">{{today.prayerTime[0].syuruk}}</h4>
                 </div>
                 <div class="col"
-                  v-bind:class="{'activated': highlightCurrent(today.prayerTime[0].zohor, today.prayerTime[0].asar)}">
+                  v-bind:class="{'activated': highlightCurrent(today.prayerTime[0].dhuhr, today.prayerTime[0].asr)}">
                   <i class="material-icons icon-lg">wb_sunny</i>
                   <h3>Zohor</h3>
                   <h4 class="text-thin">{{today.prayerTime[0].dhuhr}}</h4>
                 </div>
                 <div class="col"
-                  v-bind:class="{'activated': highlightCurrent(today.prayerTime[0].asar, today.prayerTime[0].maghrib)}">
+                  v-bind:class="{'activated': highlightCurrent(today.prayerTime[0].asr, today.prayerTime[0].maghrib)}">
                   <i class="material-icons icon-lg">wb_cloudy</i>
                   <h3>Asar</h3>
                   <h4 class="text-thin">{{today.prayerTime[0].asr}}</h4>
                 </div>
                 <div class="col"
-                  v-bind:class="{'activated': highlightCurrent(today.prayerTime[0].maghrib, today.prayerTime[0].isyak)}">
+                  v-bind:class="{'activated': highlightCurrent(today.prayerTime[0].maghrib, today.prayerTime[0].isha)}">
                   <i class="material-icons icon-lg">brightness_3</i>
                   <h3>Maghrib</h3>
                   <h4 class="text-thin">{{today.prayerTime[0].maghrib}}</h4>
                 </div>
-                <div class="col" v-bind:class="{'activated': highlightCurrent(today.prayerTime[0].isyak)}">
+                <div class="col" v-bind:class="{'activated': highlightCurrent(today.prayerTime[0].isha)}">
                   <i class="material-icons icon-lg">brightness_4</i>
                   <h3>Isyak</h3>
                   <h4 class="text-thin">{{today.prayerTime[0].isha}}</h4>
