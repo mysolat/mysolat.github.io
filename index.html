@@ -2,36 +2,41 @@
 <html lang="en">
 
 <head>
-    <meta charset="utf-8" />
-    <link rel="apple-touch-icon" sizes="76x76" href="images/apple-icon.png">
-    <link rel="icon" type="image/png" href="/images/favicon.png">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
-    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
-    <meta name="viewport"    content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no"  />
-    <meta name="author"      content="Mohd Khairi Mohd Adnan" />
-    <meta name="Classification" content="Social/Religion/Islam">
-    <meta name="description" content="Waktu Solat dan Berbuka di Malaysia" />
-    <meta name="keywords"    content="Sistem Panduan Solat Umat Islam , Waktu Solat, Malaysia, Falak JAKIM, Jadual Waktu Solat, Subuh,Dhuha,Zohor,Asar,Maghrib,Isyak, Taqwim, Jakim, takwim, takwim solat, taqwim solat"/>
-    <meta name="Language" content="MS">
-    <meta name="Rating" content="General">
-    <meta name="google" value="notranslate">
-    
-    <title>Waktu Solat Malaysia</title>
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <!-- CSS Files -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
-    <!-- CSS Just for demo purpose, don't include it in your project -->
-    <link href="/css/main.css" rel="stylesheet" />
-  
+  <meta charset="utf-8" />
+  <link rel="apple-touch-icon" sizes="76x76" href="images/apple-icon.png">
+  <link rel="icon" type="image/png" href="/images/favicon.png">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+  <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no" />
+  <meta name="author" content="Mohd Khairi Mohd Adnan" />
+  <meta name="Classification" content="Social/Religion/Islam">
+  <meta name="description" content="Waktu Solat dan Berbuka di Malaysia" />
+  <meta name="keywords"
+    content="Sistem Panduan Solat Umat Islam , Waktu Solat, Malaysia, Falak JAKIM, Jadual Waktu Solat, Subuh,Dhuha,Zohor,Asar,Maghrib,Isyak, Taqwim, Jakim, takwim, takwim solat, taqwim solat" />
+  <meta name="Language" content="MS">
+  <meta name="Rating" content="General">
+  <meta name="google" value="notranslate">
+
+  <title>Waktu Solat Malaysia</title>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <!-- CSS Files -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
+    integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+  <!-- CSS Just for demo purpose, don't include it in your project -->
+  <link href="/css/main.css" rel="stylesheet" />
+
 </head>
 
 <body id="apps">
-      <!-- Navigation -->
+  <!-- Navigation -->
   <main id='main'>
     <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
       <div class="container">
         <a class="navbar-brand js-scroll-trigger" href="#apps">SOLAT.MY</a>
-        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
+          data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
+          aria-label="Toggle navigation">
           Menu
           <i class="fa fa-bars"></i>
         </button>
@@ -44,7 +49,7 @@
               <a class="nav-link js-scroll-trigger" href="#monthly">{{year}}</a>
             </li>
             <li class="nav-item">
-              <a  class="nav-link" href="#" v-on:click="openSetting()"> <span class="material-icons">settings</span></a>
+              <a class="nav-link" href="#" v-on:click="openSetting()"> <span class="material-icons">settings</span></a>
             </li>
           </ul>
         </div>
@@ -52,37 +57,40 @@
     </nav>
 
     <div id="settings">
-      <div id="modal-option" class="modal fade"  tabindex="-1" role="dialog" aria-labelledby="modal-option-label" style="display: none;" aria-hidden="true">
+      <div id="modal-option" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="modal-option-label"
+        style="display: none;" aria-hidden="true">
         <div class="modal-dialog modal-lg">
           <div class="modal-content">
             <div class="modal-header">
-                <h4 class="modal-title title-up text-dark">Location</h4>
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
-                    <i class="material-icons">close</i>
-                </button>
+              <h4 class="modal-title title-up text-dark">Locations</h4>
+
+              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                <i class="material-icons">close</i>
+              </button>
             </div>
             <div class="modal-body">
-                <div class="row justify-content-center">
-                  <div class="col-8">
-                    <input type="text" v-model="search" class="form-control" style="margin-bottom: 15px;" placeholder="Search Zone .... ">
-                  </div>
+              <div class="row justify-content-center">
+                <div class="col-8">
+                  <input type="text" v-model="search" class="form-control" style="margin-bottom: 15px;"
+                    placeholder="Cari lokasi..">
                 </div>
-                <div class="row">
-                 
-                    <ul class="list-group list-group-flush">
-                     <li class="list-group-item" v-for="zone in zones">
-                        <h6 class="text-dark"> {{zone.negeri}} </h6>
-                        <ul class="list-group">
-                          <li v-for="lokasi in zone.lokasi">
-                            <a class="nav-link active" href="#"  v-on:click="setZone(lokasi.kod)">
-                              <span>{{lokasi.kod}} {{lokasi.zon.join(', ')}} </span>
-                             </a>
-                          </li>
-                        </ul>
-                      </li>
-                    </ul>
-
+              </div>
+              <div class="row">
+                <div class="col-12">
+                  <ul class="list-group list-group-flush">
+                    <li class="list-group-item " v-for="(state, index) in zones" :key="index">
+                      <h6 class="text-dark"> {{index}} </h6>
+                      <ul class="list-group">
+                        <li v-for="location in state">
+                          <a class="nav-link active" href="#" v-on:click="setZone(location.code)">
+                            <span>{{location.code}} {{location.location}} </span>
+                          </a>
+                        </li>
+                      </ul>
+                    </li>
+                  </ul>
                 </div>
+              </div>
             </div>
             <div class="modal-footer">
 
@@ -92,71 +100,77 @@
       </div>
     </div>
 
-        <!-- Intro Header -->
-    <header class="masthead" id='daily' v-if="today.timetables">
+    <!-- Intro Header -->
+    <header class="masthead" id='daily' v-if="today.prayerTime">
       <div class="intro-body">
         <div class="container-fluid">
           <div class="row">
             <div class="col-lg-12 mx-auto">
-                <h3 class="text-thin intro-text">{{zone}} - {{location}}</h3>
-                <div class="row">
-                  <div class="col-3">
-                    <h3 class="text-thin text-left">{{today.timetables[0].hari}}, {{today.timetables[0].tarikh}}</h3>
-                  </div> 
-                  <div class="col-6">
-                    <h1 class="clock brand-heading text-center">{{time_now}}</h1>
-                  </div>
-                  <div class="col-3">
-                    <h3 class="text-thin text-right">{{today.timetables[0].tarikh_hijrah}}</h3>
-                  </div>
+              <h3 class="text-3xl text-thin d-inline-flex">{{zone}} - </h3>
+              <h3 class="text-3xl text-thin d-inline-flex" v-for="location in today.locations">
+                <span class="mr-2"> {{ location.location }} </span>
+              </h3>
+              <div class="row">
+                <div class="col-3">
+                  <h3 class="text-thin text-left">{{today.prayerTime[0].day}}, {{today.prayerTime[0].date}}</h3>
                 </div>
-
-                <br>
-                <br>
-
-                <div class="row text-center lead">
-                  <div class="col" v-bind:class="{'activated': highlightCurrent(today.timetables[0].imsak, today.timetables[0].subuh)}">
-                    <i class="material-icons icon-lg">burst_mode</i>
-                    <h3>Imsak</h3>
-                    <h4 class="text-thin">{{today.timetables[0].imsak}}</h4>
-                  </div>
-                  <div class="col" v-bind:class="{'activated': highlightCurrent(today.timetables[0].subuh, today.timetables[0].syuruk)}">
-                    <i class="material-icons icon-lg">compare</i>
-                    <h3>Subuh</h3>
-                    <h4 class="text-thin">{{today.timetables[0].subuh}}</h4>
-                  </div>
-                  <div class="col" v-bind:class="{'activated': highlightCurrent(today.timetables[0].syuruk, today.timetables[0].zohor)}">
-                    <i class="material-icons icon-lg">filter_hdr</i>
-                    <h3>Syuruk</h3>
-                    <h4 class="text-thin">{{today.timetables[0].syuruk}}</h4>
-                  </div>
-                  <div class="col" v-bind:class="{'activated': highlightCurrent(today.timetables[0].zohor, today.timetables[0].asar)}">
-                    <i class="material-icons icon-lg">wb_sunny</i>
-                    <h3>Zohor</h3>
-                    <h4 class="text-thin">{{today.timetables[0].zohor}}</h4>
-                  </div>
-                  <div class="col" v-bind:class="{'activated': highlightCurrent(today.timetables[0].asar, today.timetables[0].maghrib)}">
-                    <i class="material-icons icon-lg">wb_cloudy</i>
-                    <h3>Asar</h3>
-                    <h4 class="text-thin">{{today.timetables[0].asar}}</h4>
-                  </div>
-                  <div class="col" v-bind:class="{'activated': highlightCurrent(today.timetables[0].maghrib, today.timetables[0].isyak)}">
-                    <i class="material-icons icon-lg">brightness_3</i>
-                    <h3>Maghrib</h3>
-                    <h4 class="text-thin">{{today.timetables[0].maghrib}}</h4>
-                  </div>
-                  <div class="col" v-bind:class="{'activated': highlightCurrent(today.timetables[0].isyak)}">
-                    <i class="material-icons icon-lg">brightness_4</i>
-                    <h3>Isyak</h3>
-                    <h4 class="text-thin">{{today.timetables[0].isyak}}</h4>
-                  </div>
+                <div class="col-6">
+                  <h1 class="clock brand-heading text-center">{{time_now}}</h1>
+                </div>
+                <div class="col-3">
+                  <h3 class="text-thin text-right">{{today.prayerTime[0].hijri}}</h3>
+                </div>
               </div>
 
+              <br>
+              <br>
+
+              <div class="row text-center lead">
+                <div class="col"
+                  v-bind:class="{'activated': highlightCurrent(today.prayerTime[0].imsak, today.prayerTime[0].subuh)}">
+                  <i class="material-icons icon-lg">burst_mode</i>
+                  <h3>Imsak</h3>
+                  <h4 class="text-thin">{{today.prayerTime[0].imsak}}</h4>
+                </div>
+                <div class="col"
+                  v-bind:class="{'activated': highlightCurrent(today.prayerTime[0].subuh, today.prayerTime[0].syuruk)}">
+                  <i class="material-icons icon-lg">compare</i>
+                  <h3>Subuh</h3>
+                  <h4 class="text-thin">{{today.prayerTime[0].fajr}}</h4>
+                </div>
+                <div class="col"
+                  v-bind:class="{'activated': highlightCurrent(today.prayerTime[0].syuruk, today.prayerTime[0].zohor)}">
+                  <i class="material-icons icon-lg">filter_hdr</i>
+                  <h3>Syuruk</h3>
+                  <h4 class="text-thin">{{today.prayerTime[0].syuruk}}</h4>
+                </div>
+                <div class="col"
+                  v-bind:class="{'activated': highlightCurrent(today.prayerTime[0].zohor, today.prayerTime[0].asar)}">
+                  <i class="material-icons icon-lg">wb_sunny</i>
+                  <h3>Zohor</h3>
+                  <h4 class="text-thin">{{today.prayerTime[0].dhuhr}}</h4>
+                </div>
+                <div class="col"
+                  v-bind:class="{'activated': highlightCurrent(today.prayerTime[0].asar, today.prayerTime[0].maghrib)}">
+                  <i class="material-icons icon-lg">wb_cloudy</i>
+                  <h3>Asar</h3>
+                  <h4 class="text-thin">{{today.prayerTime[0].asr}}</h4>
+                </div>
+                <div class="col"
+                  v-bind:class="{'activated': highlightCurrent(today.prayerTime[0].maghrib, today.prayerTime[0].isyak)}">
+                  <i class="material-icons icon-lg">brightness_3</i>
+                  <h3>Maghrib</h3>
+                  <h4 class="text-thin">{{today.prayerTime[0].maghrib}}</h4>
+                </div>
+                <div class="col" v-bind:class="{'activated': highlightCurrent(today.prayerTime[0].isyak)}">
+                  <i class="material-icons icon-lg">brightness_4</i>
+                  <h3>Isyak</h3>
+                  <h4 class="text-thin">{{today.prayerTime[0].isha}}</h4>
+                </div>
+              </div>
               <a href="#monthly" class="btn btn-circle js-scroll-trigger">
                 <i class="material-icons animated">keyboard_arrow_down</i>
               </a>
-
-
             </div>
           </div>
         </div>
@@ -165,57 +179,69 @@
 
     <!-- About Section -->
     <section id="monthly" class="content-section text-center">
-     <div class="container">
-            <div class="row">
-              <div class="col-lg-12 mx-auto">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 mx-auto">
 
-                 <div class="button-container">
-                    <a class="btn btn-default btn-round btn-lg btn-circle" href="#!" v-bind:class="{'btn-primary': month == '1'}" v-on:click="getThisMonth('1')">01</a>
-                    <a class="btn btn-default btn-round btn-lg btn-circle" href="#!" v-bind:class="{'btn-primary': month == '2'}" v-on:click="getThisMonth('2')">02</a>
-                    <a class="btn btn-default btn-round btn-lg btn-circle" href="#!" v-bind:class="{'btn-primary': month == '3'}" v-on:click="getThisMonth('3')">03</a>
-                    <a class="btn btn-default btn-round btn-lg btn-circle" href="#!" v-bind:class="{'btn-primary': month == '4'}" v-on:click="getThisMonth('4')">04</a>
-                    <a class="btn btn-default btn-round btn-lg btn-circle" href="#!" v-bind:class="{'btn-primary': month == '5'}" v-on:click="getThisMonth('5')">05</a>
-                    <a class="btn btn-default btn-round btn-lg btn-circle" href="#!" v-bind:class="{'btn-primary': month == '6'}" v-on:click="getThisMonth('6')">06</a>
-                    <a class="btn btn-default btn-round btn-lg btn-circle" href="#!" v-bind:class="{'btn-primary': month == '7'}" v-on:click="getThisMonth('7')">07</a>
-                    <a class="btn btn-default btn-round btn-lg btn-circle" href="#!" v-bind:class="{'btn-primary': month == '8'}" v-on:click="getThisMonth('8')">08</a>
-                    <a class="btn btn-default btn-round btn-lg btn-circle" href="#!" v-bind:class="{'btn-primary': month == '9'}" v-on:click="getThisMonth('9')">09</a>
-                    <a class="btn btn-default btn-round btn-lg btn-circle" href="#!" v-bind:class="{'btn-primary': month == '10'}" v-on:click="getThisMonth('10')">10</a>
-                    <a class="btn btn-default btn-round btn-lg btn-circle" href="#!" v-bind:class="{'btn-primary': month == '11'}" v-on:click="getThisMonth('11')">11</a>
-                    <a class="btn btn-default btn-round btn-lg btn-circle" href="#!" v-bind:class="{'btn-primary': month == '12'}" v-on:click="getThisMonth('12')">12</a>
-                </div>
+            <div class="button-container">
+              <a class="btn btn-default btn-round btn-lg btn-circle" href="#!"
+                v-bind:class="{'btn-primary': month == '1'}" v-on:click="getThisMonth('1')">01</a>
+              <a class="btn btn-default btn-round btn-lg btn-circle" href="#!"
+                v-bind:class="{'btn-primary': month == '2'}" v-on:click="getThisMonth('2')">02</a>
+              <a class="btn btn-default btn-round btn-lg btn-circle" href="#!"
+                v-bind:class="{'btn-primary': month == '3'}" v-on:click="getThisMonth('3')">03</a>
+              <a class="btn btn-default btn-round btn-lg btn-circle" href="#!"
+                v-bind:class="{'btn-primary': month == '4'}" v-on:click="getThisMonth('4')">04</a>
+              <a class="btn btn-default btn-round btn-lg btn-circle" href="#!"
+                v-bind:class="{'btn-primary': month == '5'}" v-on:click="getThisMonth('5')">05</a>
+              <a class="btn btn-default btn-round btn-lg btn-circle" href="#!"
+                v-bind:class="{'btn-primary': month == '6'}" v-on:click="getThisMonth('6')">06</a>
+              <a class="btn btn-default btn-round btn-lg btn-circle" href="#!"
+                v-bind:class="{'btn-primary': month == '7'}" v-on:click="getThisMonth('7')">07</a>
+              <a class="btn btn-default btn-round btn-lg btn-circle" href="#!"
+                v-bind:class="{'btn-primary': month == '8'}" v-on:click="getThisMonth('8')">08</a>
+              <a class="btn btn-default btn-round btn-lg btn-circle" href="#!"
+                v-bind:class="{'btn-primary': month == '9'}" v-on:click="getThisMonth('9')">09</a>
+              <a class="btn btn-default btn-round btn-lg btn-circle" href="#!"
+                v-bind:class="{'btn-primary': month == '10'}" v-on:click="getThisMonth('10')">10</a>
+              <a class="btn btn-default btn-round btn-lg btn-circle" href="#!"
+                v-bind:class="{'btn-primary': month == '11'}" v-on:click="getThisMonth('11')">11</a>
+              <a class="btn btn-default btn-round btn-lg btn-circle" href="#!"
+                v-bind:class="{'btn-primary': month == '12'}" v-on:click="getThisMonth('12')">12</a>
+            </div>
 
-                <br>
-                <br>
-                <table class="table table-hover">
-                  <thead>
-                    <tr>
-                      <th width="200px">Tarikh Masihi</th>
-                      <th width="10%">Hari</th>
-                      <th width="10%" class="text-center">Subuh</th>
-                      <th width="10%" class="text-center">Syuruk</th>
-                      <th width="10%" class="text-center">Zohor</th>
-                      <th width="10%" class="text-center">Asar</th>
-                      <th width="10%" class="text-center">Maghrib</th>
-                      <th width="10%" class="text-center">Isyak</th>
-                      <th width="200px" class="text-right">Tarikh Hijrah</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr v-for="day in days.timetables">
-                      <td>{{day.tarikh}}</td>
-                      <td>{{day.hari}}</td>
-                      <td class="text-center" >{{day.subuh}}</td>
-                      <td class="text-center" >{{day.syuruk}}</td>
-                      <td class="text-center" >{{day.zohor}}</td>
-                      <td class="text-center" >{{day.asar}}</td>
-                      <td class="text-center" >{{day.maghrib}}</td>
-                      <td class="text-center" >{{day.isyak}}</td>
-                      <td class="text-right">{{day.tarikh_hijrah}}</td>
-                    </tr>
-                  </tbody>
-                </table>
+            <br>
+            <br>
+            <table class="table table-hover">
+              <thead>
+                <tr>
+                  <th width="200px">Tarikh Masihi</th>
+                  <th width="10%">Hari</th>
+                  <th width="10%" class="text-center">Subuh</th>
+                  <th width="10%" class="text-center">Syuruk</th>
+                  <th width="10%" class="text-center">Zohor</th>
+                  <th width="10%" class="text-center">Asar</th>
+                  <th width="10%" class="text-center">Maghrib</th>
+                  <th width="10%" class="text-center">Isyak</th>
+                  <th width="200px" class="text-right">Tarikh Hijrah</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr v-for="day in days.prayerTime">
+                  <td>{{day.date}}</td>
+                  <td>{{day.day}}</td>
+                  <td class="text-center">{{day.fajr}}</td>
+                  <td class="text-center">{{day.syuruk}}</td>
+                  <td class="text-center">{{day.dhuhr}}</td>
+                  <td class="text-center">{{day.asr}}</td>
+                  <td class="text-center">{{day.maghrib}}</td>
+                  <td class="text-center">{{day.isha}}</td>
+                  <td class="text-right">{{day.hijri}}</td>
+                </tr>
+              </tbody>
+            </table>
 
-         </div>
+          </div>
         </div>
       </div>
     </section>
@@ -227,18 +253,23 @@
 <script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/moment.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/moment-hijri@2.1.1/moment-hijri.min.js"></script>
 <!--   Core JS Files   -->
-<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+  integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"
+  integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
 <script src="/js/main.js"></script>
 <script src="/js/api.js"></script>
 
 <script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  (function (i, s, o, g, r, a, m) {
+    i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+      (i[r].q = i[r].q || []).push(arguments)
+    }, i[r].l = 1 * new Date(); a = s.createElement(o),
+      m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+  })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
 
   ga('create', 'UA-41818279-2', 'auto');
   ga('send', 'pageview');
@@ -251,7 +282,7 @@
     var options = {
       enableHighAccuracy: false,
       timeout: 5000,
-      maximumAge: 0       
+      maximumAge: 0
     };
     navigator.geolocation.getCurrentPosition(updateLocation, errorHandler, options);
   }
